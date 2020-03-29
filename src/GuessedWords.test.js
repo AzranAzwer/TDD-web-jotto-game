@@ -33,5 +33,26 @@ test("renders intructions to guess a word",()=>{
 })
 
 describe("if there are words guessed",()=>{
-    
+    let wrapper;
+    const guessedWords =[
+        {guessedWords:"train", letterMachCount:3},
+        {guessedWords:"agile", letterMachCount:1},
+        {guessedWords:"party", letterMachCount:5},
+    ]
+    beforeEach(()=>{
+        wrapper=setup({guessedWords})
+    })
+
+test("renders without errors",()=>{
+    const component = findByTestAttr(wrapper,"component-guessed-words")
+    expect(component.length).toBe(1)
+})  
+test("renders 'guessed word' sections",()=>{
+    const guessedWordsNode =findByTestAttr(wrapper,'guessed-words')
+    expect(guessedWordsNode.length).toBe(1)
+})  
+test("correct numbers of guessed words",()=>{
+const guessedWordsNodes =findByTestAttr(wrapper,'guessed-word')
+expect(guessedWordsNodes.length).toBe(guessedWords.length)
+})
 })

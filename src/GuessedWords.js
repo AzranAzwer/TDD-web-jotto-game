@@ -10,6 +10,24 @@ if(props.guessedWords.length === 0 ){
             Try tro guess the secret word!
         </span>
     )
+}else{
+    const guessedWordsRow = props.guessedWords.map((word,index)=>(
+        <tr testID="guessed-word" key={index}>
+            <td>{word.guessedWords}</td><td>{word.letterMachCount}</td>
+        </tr>
+    ))
+    contents=(
+        <div testID="guessed-words">
+            <table>
+                <thead>
+                    <tr><th>Guess</th><th>Matching Letters</th></tr>
+                </thead>
+                <tbody>
+                    {guessedWordsRow}
+                </tbody>
+            </table>
+        </div>
+    )
 }
     return(
         <div testID="component-guessed-words">
