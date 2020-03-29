@@ -18,8 +18,8 @@ if(props.guessedWords.length === 0 ){
     ))
     contents=(
         <div testID="guessed-words">
-            <table>
-                <thead>
+            <table className="table table-sm">
+                <thead className="thead-light">
                     <tr><th>Guess</th><th>Matching Letters</th></tr>
                 </thead>
                 <tbody>
